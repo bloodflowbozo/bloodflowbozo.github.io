@@ -1,0 +1,90 @@
+/*!
+ * CircularCarousel — vanilla JS port of the React Bits <CircularCarousel /> component.
+ * No dependencies. Pair it with circular-carousel.css. title
+ *
+ * Declarative usage (auto-init, no JS to write):
+ *   <link rel="stylesheet" href="circular-carousel.css">
+ *   <div data-component="CircularCarousel" data-preset="panorama" data-captions style="height:560px">
+ *     <img src="a.jpg" alt="…" data-title="…" data-subtitle="…">
+ *     <img src="b.jpg" alt="…" data-title="…" data-subtitle="…">
+ *   </div>
+ *   <script src="circular-carousel.js"></script>
+ *
+ *   - Options are data attributes in kebab-case: data-card-width="320", data-aspect-ratio="1.333",
+ *     data-pause-on-hover="false", data-fade-color="#000000"… (same names as the JS options).
+ *     Boolean options: the bare attribute means true, "false" or "0" means false.
+ *   - Items come from the child <img> tags (alt, data-title, data-subtitle), or from
+ *     data-items='[{"src":"a.jpg","alt":"…","title":"…","subtitle":"…"}]'.
+ *   - The element needs a height; if it has none, 560px is applied.
+ *   - The instance is available as element.circularCarousel.
+ *   - Events on the element: "circularcarousel:change" (detail.index) and
+ *     "circularcarousel:itemclick" (detail.item, detail.index).
+ *   - For elements added later: CircularCarousel.init(parentElement).
+ *
+ * Programmatic usage:
+ *   const carousel = new CircularCarousel('#carousel', { items: [...], preset: 'panorama' });
+ *   Methods: next(), prev(), goTo(index), getActive(), update(options), destroy()
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * for data to be accessed by the script : around line 976
+ * 
+ * to modify the captions/tittle : _syncCaption
+ * 
+ * 
+ * to modify the counter : _setDigits
+ * 
+ * for carouse paramets : line 75
+ * 
+ * 
+ * 
+ */
+
+/*!
+ * GSAP 3.15.0
+ * https://gsap.com
+ *
+ * @license Copyright 2008-2026, GreenSock. All rights reserved.
+ * Subject to the terms at https://gsap.com/standard-license
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/*!
+ * Observer 3.15.0
+ * https://gsap.com
+ *
+ * @license Copyright 2008-2026, GreenSock. All rights reserved.
+ * Subject to the terms at https://gsap.com/standard-license
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/*!
+ * ScrollSmoother 3.15.0
+ * https://gsap.com
+ *
+ * @license Copyright 2008-2026, GreenSock. All rights reserved.
+ * Subject to the terms at https://gsap.com/standard-license
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/*!
+ * ScrollTrigger 3.15.0
+ * https://gsap.com
+ *
+ * @license Copyright 2008-2026, GreenSock. All rights reserved.
+ * Subject to the terms at https://gsap.com/standard-license
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/*!
+ * SplitText 3.15.0
+ * https://gsap.com
+ *
+ * @license Copyright 2026, GreenSock. All rights reserved. Subject to the terms at https://gsap.com/standard-license.
+ * @author: Jack Doyle
+ */
