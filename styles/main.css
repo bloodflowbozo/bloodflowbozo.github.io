@@ -1041,14 +1041,31 @@ section {
   height: 300px;
 }
 
+.projet .content {
+  isolation: isolate;
+}
+.projet .content .hero__content {
+  position: relative;
+  z-index: auto;
+}
 .projet .content .hero__content .hero__caption {
-  margin-top: 150px;
+  margin-top: 250px;
+}
+.projet .content .hero__content .h1__container h1 {
+  z-index: 0;
+}
+.projet .content .hero__content .h1__container h1.stroke {
+  z-index: 2;
+}
+.projet .content .hero__content .h1__container h1:not(.stroke) {
+  z-index: -1;
 }
 .projet .content .hero__media {
   aspect-ratio: 1.33/1;
   right: -100px;
   top: -25px;
   min-height: 500px;
+  z-index: 1;
 }
 .projet .content .hero__media img {
   aspect-ratio: 1.33/1;
@@ -1772,6 +1789,9 @@ section {
     border-bottom: 1px solid var(--color-black);
     padding-bottom: 25px;
   }
+  .skills__top .qualités {
+    padding-left: 0px;
+  }
   .logiciels .logiciels__swiper .swiper-slide {
     height: -moz-fit-content;
     height: fit-content;
@@ -1907,6 +1927,12 @@ section {
   -o-object-fit: cover;
      object-fit: cover;
 }
+.production .wrapper .troisd .troisd-flex {
+  max-height: 500px;
+}
+.production .wrapper .troisd .troisd-flex .troisd-conteneur {
+  max-height: 500px;
+}
 
 @media screen and (max-width: 768px) {
   .production .wrapper {
@@ -1924,6 +1950,27 @@ section {
     grid-template-rows: 1fr 1fr;
   }
 }
+.ai .wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.ai li {
+  color: var(--color-white);
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-content);
+}
+.ai ul {
+  list-style-type: circle;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ai h2 {
+  -webkit-text-stroke: 1px #ffffff;
+  color: transparent;
+}
+
 /**
  * Swiper 12.2.0
  * Most modern mobile touch slider and framework with hardware accelerated transitions
@@ -3083,5 +3130,44 @@ section {
   .circular-carousel__title {
     animation: none;
   }
+}
+/* The viewer fills whatever container you give it */
+.nv-viewer {
+  position: relative;
+  width: 100%;
+  max-height: 500px;
+  min-height: 360px;
+  overflow: hidden;
+  touch-action: none;
+  background: transparent;
+}
+
+.nv-viewer canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  cursor: grab;
+}
+
+.nv-viewer canvas:active {
+  cursor: grabbing;
+}
+
+.test {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  max-height: 300px;
+}
+.test div {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: var(--color-bg-primary);
+  background-color: var(--color-primary);
+}
+.test .bar {
+  background-color: var(--color-black);
 }
 /*# sourceMappingURL=main.css.map */
