@@ -89,6 +89,26 @@
  * @author: Jack Doyle
  */
 
+/*!
+ * TiltedCard — vanilla JS version (no dependencies)
+ *
+ * Usage (JS):
+ *   const card = new TiltedCard('#my-card', { imageSrc: '...', rotateAmplitude: 22 });
+ *
+ * Usage (HTML only, auto-init):
+ *   <div data-tilted-card data-image-src="..." data-rotate-amplitude="22">
+ *     <div data-depth="30">…front layer…</div>
+ *     <div data-tc-back>…back content…</div>
+ *     <div data-tc-overlay>…overlay…</div>
+ *   </div>
+ *
+ * Children of the host element:
+ *   [data-depth]      -> parallax layer (like <TiltedCardLayer depth>)
+ *   [data-tc-back]    -> back face content (enables flipping)
+ *   [data-tc-overlay] -> floating overlay (shown when displayOverlayContent is true)
+ *   anything else     -> placed on the front face as-is
+ */
+
 /**
  * @license
  * Copyright 2010-2026 Three.js Authors
