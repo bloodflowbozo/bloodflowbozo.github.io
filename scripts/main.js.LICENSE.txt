@@ -24,25 +24,25 @@
  * Programmatic usage:
  *   const carousel = new CircularCarousel('#carousel', { items: [...], preset: 'panorama' });
  *   Methods: next(), prev(), goTo(index), getActive(), update(options), destroy()
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  * for data to be accessed by the script : around line 976
- * 
+ *
  * to modify the captions/tittle : _syncCaption
- * 
- * 
+ *
+ *
  * to modify the counter : _setDigits
- * 
+ *
  * for carouse paramets : line 75
- * 
- * 
- * 
+ *
+ *
+ *
  */
 
 /*!

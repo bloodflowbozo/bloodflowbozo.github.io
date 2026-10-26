@@ -22,10 +22,10 @@
    FONTS / SETTINGS
    ========================================================================== */
 :root {
-  --font-primary: "Didot", serif;
-  --font-secondary: "Inter", sans-serif;
+  --font-primary: 'Didot', serif;
+  --font-secondary: 'Inter', sans-serif;
   --font-size-content: clamp(1.25rem, 0.42vw + 1.13rem, 1.5rem);
-  --font-size-h1: clamp(4.38rem, 8.33vw + 1.88rem, 9.38rem);
+  --font-size-h1: clamp(4.38rem, 5.63vw + 2.69rem, 7.75rem);
   --font-size-h2: clamp(3rem, 1.67vw + 2.5rem, 4rem);
   --font-size-h3: clamp(3rem, 1.67vw + 2.5rem, 4rem);
   --font-size-h4: clamp(2.25rem, 1.25vw + 1.88rem, 3rem);
@@ -381,7 +381,9 @@ body {
   color: var(--color-black);
   font-family: var(--font-secondary);
   font-size: var(--font-size-content);
-  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
   transition: all 0.6s ease;
 }
 body .aside {
@@ -642,11 +644,13 @@ a:hover {
   background-color: #f3f3f3;
   background-image: none;
 }
-.header-is-hidden.is-scrolling-down:not(.nav-is-active) .header p, .header-is-hidden.is-scrolling-down:not(.nav-is-active) .header a,
+.header-is-hidden.is-scrolling-down:not(.nav-is-active) .header p,
+.header-is-hidden.is-scrolling-down:not(.nav-is-active) .header a,
 .header-is-hidden.is-scrolling-down:not(.nav-is-active) .header .tittle {
   color: var(--color-black);
 }
-.header-is-hidden.is-scrolling-down:not(.nav-is-active) .header p:hover, .header-is-hidden.is-scrolling-down:not(.nav-is-active) .header a:hover,
+.header-is-hidden.is-scrolling-down:not(.nav-is-active) .header p:hover,
+.header-is-hidden.is-scrolling-down:not(.nav-is-active) .header a:hover,
 .header-is-hidden.is-scrolling-down:not(.nav-is-active) .header .tittle:hover {
   color: var(--color-primary);
 }
@@ -661,15 +665,16 @@ a:hover {
   display: flex;
   flex-direction: column;
   transition: all 0.3s ease-in-out;
-  transform: translateY(-320px);
+  transform: translateX(-100vw);
   z-index: 3;
   overflow: hidden;
   display: none;
 }
 .header .nav-active .hub-active {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 20px;
+  align-items: start;
 }
 .header .nav-active .menu-active {
   display: flex;
@@ -679,57 +684,69 @@ a:hover {
   align-items: start;
 }
 
-.header .flex, .footer .flex {
+.header .flex,
+.footer .flex {
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 4;
 }
-.header p, .footer p {
+.header p,
+.footer p {
   color: var(--color-white);
   letter-spacing: 10%;
   transition: 0.3s all ease-out;
 }
-.header .hub, .footer .hub {
+.header .hub,
+.footer .hub {
   list-style-type: none;
   display: flex;
   flex-direction: row;
   gap: 20px;
   align-items: center;
 }
-.header .hub li, .footer .hub li {
+.header .hub li,
+.footer .hub li {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  gap: 5px;
 }
-.header .hub li svg, .footer .hub li svg {
+.header .hub li svg,
+.footer .hub li svg {
   color: var(--color-primary);
 }
-.header .hub a, .footer .hub a {
+.header .hub a,
+.footer .hub a {
   font-size: 0.94rem;
   transition: 0.3s all ease-out;
 }
-.header .hub li, .footer .hub li {
+.header .hub li,
+.footer .hub li {
   transition: 0.3s all ease-out;
 }
-.header .menu, .footer .menu {
+.header .menu,
+.footer .menu {
   list-style-type: none;
   display: flex;
   flex-direction: row;
   gap: 40px;
   align-items: center;
 }
-.header .menu li, .footer .menu li {
+.header .menu li,
+.footer .menu li {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
-.header .menu a, .footer .menu a {
+.header .menu a,
+.footer .menu a {
   font-size: 1.13rem;
 }
-.header .tittle, .footer .tittle {
+.header .tittle,
+.footer .tittle {
   font-weight: 400;
   font-size: 2.13rem;
   transition: 0.3s all ease-out;
@@ -737,7 +754,8 @@ a:hover {
   color: var(--color-white);
   font-family: var(--font-primary);
 }
-.header .tittle:hover, .footer .tittle:hover {
+.header .tittle:hover,
+.footer .tittle:hover {
   color: var(--color-primary);
 }
 
@@ -769,7 +787,7 @@ a:hover {
   }
 }
 .nav-is-active .header .wrapper .nav-active {
-  transform: translateY(0);
+  transform: translateX(0);
 }
 
 .footer {
@@ -850,36 +868,62 @@ a:hover {
 }
 .footer .wrapper .third .link {
   text-decoration: underline;
+  color: var(--color-primary);
+}
+.footer .wrapper .third .link:hover {
+  color: var(--color-white);
 }
 
 @media screen and (max-width: 768px) {
+  .footer .wrapper .third {
+    flex-direction: column;
+    align-items: center;
+    border-top: 0px;
+    padding-top: 0px;
+  }
   .footer .wrapper .third ul {
     gap: 0px;
   }
   .footer .wrapper .third ul li svg {
     scale: 0.6;
   }
-  .footer .wrapper .third p, .footer .wrapper .third a {
+  .footer .wrapper .third p,
+  .footer .wrapper .third a {
     scale: 0.8;
+  }
+  .footer .wrapper .second {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer .wrapper .second .hub {
+    flex-direction: column;
   }
   .footer .wrapper .second .hub a {
     scale: 0.6;
   }
+  .footer .wrapper .second {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 20px;
+  }
+  .footer .wrapper .flex {
+    flex-direction: column;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 20px;
+  }
   .footer .wrapper .flex ul {
     gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0px;
   }
   .footer .wrapper .flex ul li {
     scale: 0.7;
   }
   .footer .wrapper .bouton {
-    width: -moz-fit-content;
-    width: fit-content;
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-bottom: 10px;
-  }
-  .footer .wrapper .bouton :nth-child(1) {
-    display: none;
+    width: 200px;
+    scale: 0.7;
   }
 }
 .bouton {
@@ -942,6 +986,7 @@ section {
   padding-top: 110px;
   padding-bottom: 110px;
   position: relative;
+  overflow-x: clip;
 }
 
 .white-bg h2 {
@@ -994,9 +1039,10 @@ section {
 .hero .content .hero__media {
   position: absolute;
   right: 0;
-  top: 0;
+  top: -50px;
   z-index: 0;
   aspect-ratio: 1/1;
+  order: 1;
 }
 .hero .content .hero__media img {
   height: 95%;
@@ -1004,6 +1050,7 @@ section {
 }
 .hero .content .hero__content {
   position: relative;
+  order: 2;
 }
 .hero .content .hero__content p {
   position: relative;
@@ -1023,6 +1070,8 @@ section {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  mix-blend-mode: luminosity;
+  letter-spacing: 0px;
 }
 .hero h1 div {
   overflow: visible !important;
@@ -1043,13 +1092,15 @@ section {
 
 .projet .content {
   isolation: isolate;
+  display: flex;
+  flex-direction: column;
 }
 .projet .content .hero__content {
   position: relative;
   z-index: auto;
-}
-.projet .content .hero__content .hero__caption {
-  margin-top: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
 }
 .projet .content .hero__content .h1__container h1 {
   z-index: 0;
@@ -1063,8 +1114,8 @@ section {
 .projet .content .hero__media {
   aspect-ratio: 1.33/1;
   right: -100px;
-  top: -25px;
-  min-height: 500px;
+  top: 0px;
+  min-height: 450px;
   z-index: 1;
 }
 .projet .content .hero__media img {
@@ -1090,7 +1141,10 @@ section {
   }
   .projet .hero__media {
     right: 0;
-    left: -25px;
+    left: 0;
+  }
+  .projet .content .hero__content {
+    gap: 10px;
   }
   .projet .content .hero__content .hero__caption {
     margin-top: 20px;
@@ -1427,6 +1481,7 @@ section {
 }
 .contact .champs .bouton {
   margin-left: auto;
+  background-color: transparent;
 }
 .contact .champs .ligne1 {
   display: flex;
@@ -1708,10 +1763,13 @@ section {
 .logiciels .logiciels__swiper .swiper-wrapper {
   transition-timing-function: linear;
 }
+.logiciels .logiciels__swiper .swiper-wrapper .swiper-slide {
+  aspect-ratio: 1/1;
+}
 .logiciels .logiciels__swiper img {
   aspect-ratio: 1/1;
-  width: 220px;
-  height: 220px;
+  width: 100%;
+  height: 100%;
 }
 
 @media screen and (max-width: 768px) {
@@ -1821,6 +1879,9 @@ section {
   font-weight: 500;
   color: #fff;
 }
+.production .wrapper .mediabullet .media__media img {
+  width: 100%;
+}
 .production .wrapper .textcode .text-code {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1862,9 +1923,6 @@ section {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-}
-.production .wrapper .troisd .troisd-flex {
-  max-height: 500px;
 }
 .production .wrapper .troisd .troisd-flex .troisd-conteneur {
   max-height: 500px;
