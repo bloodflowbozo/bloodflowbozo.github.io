@@ -1926,6 +1926,17 @@ section {
 }
 .production .wrapper .troisd .troisd-flex .troisd-conteneur {
   max-height: 500px;
+  position: relative;
+}
+.production .wrapper .troisd .troisd-flex .troisd-conteneur .icon3d {
+  position: absolute;
+  z-index: 2;
+  bottom: 20px;
+  left: 20px;
+  color: #fff;
+  aspect-ratio: 1/1;
+  width: 70px;
+  height: 70px;
 }
 
 @media screen and (max-width: 768px) {
@@ -3043,6 +3054,9 @@ section {
   z-index: 1;
 }
 
+.circular__carousel {
+  overflow: clip;
+}
 .circular__carousel .bouton {
   margin-left: auto;
   margin-right: auto;
